@@ -4,23 +4,18 @@
   <meta charset="utf-8">
   <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
   <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="DESCRIPTION META TAG">
-  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
-  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
-  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <meta name="description" content="Discover the MuLAn dataset, featuring multi-layer image decomposition annotations. This dataset enables precise inpainting of occluded areas and separates instances within a scene across distinct RGBA layers for advanced visual analysis.">
+  <meta property="og:title" content="MULAN: Multi-Layer Annotated Dataset for Controllable Text-to-Image Generation"/>
+  <meta property="og:description" content="Discover the MuLAn dataset, featuring multi-layer image decomposition annotations. This dataset enables precise inpainting of occluded areas and separates instances within a scene across distinct RGBA layers for advanced visual analysis."/>
+  <meta property="og:url" content="https://mulan-dataset.github.io/"/>
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
   <meta property="og:image" content="static/image/your_banner_image.png" />
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
 
 
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
-  <meta name="twitter:card" content="summary_large_image">
   <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="keywords" content="MuLAn dataset, multi-layer annotated dataset, controllable text-to-image generation, image decomposition annotations, instance isolation, RGBA layers, occluded area inpainting, scene instance segmentation, generative AI research, photorealistic image generation, COCO dataset, LAION dataset, image decomposition techniques, instance-level compositionality">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -43,6 +38,8 @@
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
+  <script src="static/js/carousel-coco.js"></script>
+  <script src="static/js/carousel-laion.js"></script>
 </head>
 
 <body>
@@ -119,7 +116,7 @@
                     <a href="https://huggingface.co/datasets/mulan-dataset/v1.0" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
-                      <i class="fab fa-github"></i>
+                      <img src="static/images/hf-logo-pirate.png" width="80%">
                     </span>
                     <span>Dataset</span>
                   </a>
@@ -153,6 +150,9 @@
 <!-- End teaser video -->
 
 <!-- Paper abstract -->
+
+
+
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -164,18 +164,18 @@
               fidelity remain highly challenging. This limitation is typically addressed through cumbersome prompt
               engineering,  scene layout conditioning, or image editing techniques which often require hand drawn masks.
               Nonetheless, pre-existing works struggle to take advantage of the natural instance-level compositionality
-              of scenes due to the typically flat nature of rasterized RGB output images. Towards adressing this
-              challenge, we introduce MuLAn: a novel dataset comprising over 44K MUlti-Layer ANnotations of RGB images
+              of scenes due to the typically flat nature of rasterized RGB output images.</p> 
+              <p>Towards adressing this challenge, we introduce MuLAn: a novel dataset comprising over 44K MUlti-Layer ANnotations of RGB images
               as multi-layer, instance-wise RGBA decompositions, and over 100K instance images. To build MuLAn, we
               developed a training free pipeline which decomposes a monocular RGB image into a stack of RGBA layers
               comprising of background and isolated instances. We achieve this through the use of pretrained
               general-purpose models, and by developing three modules: image decomposition for instance discovery
-              and extraction, instance completion to reconstruct occluded areas, and image re-assembly.
-              We use our pipeline to create MuLAn-COCO and MuLAn-LAION datasets, which contain a variety of image
+              and extraction, instance completion to reconstruct occluded areas, and image re-assembly.</p>
+              <p>We use our pipeline to create MuLAn-COCO and MuLAn-LAION datasets, which contain a variety of image
               decompositions in terms of style, composition and complexity. With MuLAn, we provide the first
               photorealistic resource providing instance decomposition and occlusion information for high quality images,
               opening up new avenues for text-to-image generative AI research. With this, we aim to encourage the
-              development of novel generation and editing technology, in particular layer-wise solutions.
+              development of novel generation and editing technology, in particular layer-wise solutions.</p>
           </p>
         </div>
       </div>
@@ -183,125 +183,77 @@
   </div>
 </section>
 <!-- End paper abstract -->
-
+<br>
 
 <!-- Image carousel -->
-<section class="hero is-small">
-    <div class="hero-body">
-        <div class="container">
-        <h2 class="title is-3">MuLAn-COCO</h2>
-            <div id="results-carousel_COCO" class="carousel results-carousel">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="static/images/C1.png" alt="COCO0" />
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="static/images/C2.png" alt="COCO1" />
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="static/images/C3.png" alt="COCO2" />
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="static/images/C4.png" alt="COCO3" />
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="static/images/C5.png" alt="COCO4" />
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="static/images/C6.png" alt="COCO5" />
-                    </div>
-                </div>
-                 <div class="card">
-                    <div class="card-image">
-                        <img src="static/images/C7.png" alt="COCO6" />
-                    </div>
-                </div>
-                 <div class="card">
-                    <div class="card-image">
-                        <img src="static/images/C8.png" alt="COCO7" />
-                    </div>
-                </div>
-                 <div class="card">
-                    <div class="card-image">
-                        <img src="static/images/C9.png" alt="COCO8" />
-                    </div>
-                </div>
-            </div>
-        </div>
+   <h1 style="text-align: center; font-size: 200% !important;">MuLAn-COCO</h1>
+<br><br>
+<div class="slider-coco">
+    <div class="slides-coco">
+        <div class="slidec"><img src="static/images/C1.png" alt="Image 1"></div>
+        <div class="slidec"><img src="static/images/C2.png" alt="Image 2"></div>
+        <div class="slidec"><img src="static/images/C3.png" alt="Image 3"></div>
+        <div class="slidec"><img src="static/images/C4.png" alt="Image 4"></div>
+        <div class="slidec"><img src="static/images/C5.png" alt="Image 5"></div>
+        <div class="slidec"><img src="static/images/C6.png" alt="Image 6"></div>
+        <div class="slidec"><img src="static/images/C7.png" alt="Image 7"></div>
+        <div class="slidec"><img src="static/images/C8.png" alt="Image 8"></div>
+        <div class="slidec"><img src="static/images/C9.png" alt="Image 9"></div>
     </div>
-</section>
+    <a class="prev" onclick="changeSlide(-1)">❮</a>
+    <a class="next" onclick="changeSlide(1)">❯</a>
+</div>
+<div class="dots_c">
+    <span class="dot_c" onclick="currentSlide(0)"></span>
+    <span class="dot_c" onclick="currentSlide(1)"></span>
+    <span class="dot_c" onclick="currentSlide(2)"></span>
+    <span class="dot_c" onclick="currentSlide(3)"></span>
+    <span class="dot_c" onclick="currentSlide(4)"></span>
+    <span class="dot_c" onclick="currentSlide(5)"></span>
+    <span class="dot_c" onclick="currentSlide(6)"></span>
+    <span class="dot_c" onclick="currentSlide(7)"></span>
+    <span class="dot_c" onclick="currentSlide(8)"></span>
+</div>
+
 <!-- End image carousel -->
-
+<br><br>
 <!-- Image carousel -->
-<section class="hero is-small">
-    <div class="hero-body">
-        <div class="container">
-        <h2 class="title is-3">MuLAn-LAION</h2>
-            <div id="results-carousel_LAION" class="carousel results-carousel">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="static/images/LAION0.png" alt="LAION0" />
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="static/images/LAION1.png" alt="LAION1" />
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="static/images/LAION2.png" alt="LAION2" />
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="static/images/LAION3.png" alt="LAION3" />
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="static/images/LAION4.png" alt="LAION4" />
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="static/images/LAION5.png" alt="LAION5" />
-                    </div>
-                </div>
-                 <div class="card">
-                    <div class="card-image">
-                        <img src="static/images/LAION6.png" alt="LAION6" />
-                    </div>
-                </div>
-                 <div class="card">
-                    <div class="card-image">
-                        <img src="static/images/LAION7.png" alt="LAION7" />
-                    </div>
-                </div>
-                 <div class="card">
-                    <div class="card-image">
-                        <img src="static/images/LAION8.png" alt="LAION8" />
-                    </div>
-                </div>
-            </div>
-        </div>
+ <div class="carousel-laion">
+   <h1 style="text-align: center; color: black; font-size: 200% !important;">MuLAn-LAION</h1>
+<br><br>
+<div class="slider-laion">
+    <div class="slides-laion">
+        <div class="slide-laion"><img src="static/images/LAION0.png" alt="Image 1"></div>
+        <div class="slide-laion"><img src="static/images/LAION1.png" alt="Image 2"></div>
+        <div class="slide-laion"><img src="static/images/LAION2.png" alt="Image 3"></div>
+        <div class="slide-laion"><img src="static/images/LAION3.png" alt="Image 4"></div>
+        <div class="slide-laion"><img src="static/images/LAION4.png" alt="Image 5"></div>
+        <div class="slide-laion"><img src="static/images/LAION5.png" alt="Image 6"></div>
+        <div class="slide-laion"><img src="static/images/LAION6.png" alt="Image 7"></div>
+        <div class="slide-laion"><img src="static/images/LAION7.png" alt="Image 8"></div>
+        <div class="slide-laion"><img src="static/images/LAION8.png" alt="Image 9"></div>
     </div>
-</section>
+    <a class="prevl" onclick="changeSlidel(-1)">❮</a>
+    <a class="nextl" onclick="changeSlidel(1)">❯</a>
+</div>
+<div class="dots">
+    <span class="dot" onclick="currentSlidel(0)"></span>
+    <span class="dot" onclick="currentSlidel(1)"></span>
+    <span class="dot" onclick="currentSlidel(2)"></span>
+    <span class="dot" onclick="currentSlidel(3)"></span>
+    <span class="dot" onclick="currentSlidel(4)"></span>
+    <span class="dot" onclick="currentSlidel(5)"></span>
+    <span class="dot" onclick="currentSlidel(6)"></span>
+    <span class="dot" onclick="currentSlidel(7)"></span>
+    <span class="dot" onclick="currentSlidel(8)"></span>
+</div>
+
+          </div>
 <!-- End image carousel -->
 
 <section class="hero is-small">
         <div class="hero-body">
-            <div class="container ">
+            <div class="container " style="text-align:center;">
                 <h2 class="title is-3">Decomposition Pipeline</h2>
                 <p style="margin-bottom:1cm;">To build MuLAn, we design an image processing pipeline that takes as input a
                 single RGB image and outputs a multi-layer RGBA decom-
@@ -318,7 +270,9 @@
                 between input image and composed RGBA stack.
                 </p>
             <div>
-              <img id="method_sliding" src="static/images/method_1.png">
+             
+
+              <img id="method_sliding" src="static/images/method_1.png" width="60%">
             </div>
             </div>
         </div>
@@ -326,6 +280,7 @@
 
 <section class="hero is-small">
         <div class="hero-body">
+          
             <div class="container ">
                 <h2 class="title is-3">Dataset Description</h2>
                 <p style="margin-bottom:1cm;"><b>Dataset size</b>: MuLAn is split into two subsets comprising annotations from the MuLAn and LAION datasets.
@@ -384,19 +339,42 @@
 
 <section class="hero is-small">
         <div class="hero-body">
-            <div class="container ">
+            <div class="container " style="text-align: center;">
                 <h2 class="title is-3">Dataset Applications</h2>
                 <p style="margin-bottom:1cm;">We evaluated the potential of MuLAn via two applications. First, training
                     an InstructPix2Pix model to add instances to an image. Using MuLAn, we are able to successfully inpute
                     new instances with substantially better robustness to attribute leakage.
                 </p>
-                <img loading="lazy" src="static/images/mulan_ip2p.webp" alt="ip2p" />
+                <input type="checkbox" id="popup-toggle" style="display: none;">
+
+<!-- Image thumbnail for the popup trigger -->
+<label for="popup-toggle">
+    <img loading="lazy" src="static/images/mulan_ip2p.webp" alt="ip2p" class="popup-thumbnail">
+</label>
+
+<!-- Popup overlay with the larger image and close button -->
+<div class="popup-overlay">
+    <label for="popup-toggle" class="close-btn">✕</label>
+    <img src="static/images/mulan_ip2p.webp" alt="ip2p - Popup Image">
+</div>
                 <p style="margin-bottom:1cm;margin-top:1cm;">Second, we fine-tuned a stable diffusion model to generate RGBA images using
                     the 100K+ instances in MuLAn. In comparison with the original model, and a model fine-tuned on a
                     collection of matting datasets, we are able to generate better instances and achieve a more accurate
                     understanding of transparency.
                 </p>
-                <img loading="lazy" src="static/images/rgba-generation.webp" alt="rgba" />
+                <input type="checkbox" id="popup-toggle-rgba" style="display: none;">
+
+<!-- Image thumbnail for the popup trigger -->
+<label for="popup-toggle-rgba">
+    <img loading="lazy" src="static/images/rgba-generation.webp" alt="ip2p" class="popup-thumbnail-rgba">
+</label>
+
+<!-- Popup overlay with the larger image and close button -->
+<div class="popup-overlay-rgba">
+    <label for="popup-toggle-rgba" class="close-btn">✕</label>
+    <img src="static/images/rgba-generation.webp" alt="ip2p - Popup Image">
+</div>
+                
             </div>
         </div>
 </section>
